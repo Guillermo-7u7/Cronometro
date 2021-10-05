@@ -1,0 +1,76 @@
+main {
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+}
+
+.square{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #228B22;
+    color: #fff;
+    margin: 60px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.square::before{
+    content: '';
+    border-radius: 50%;
+    z-index: -1;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: calc(50%-60px);
+    top: calc(50%-60px);
+    background-color: black;
+}
+
+.seconds-sphere {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #228B22;
+    position: absolute;
+    left: calc(50%-10px);
+    top: calc(50%-10px);
+    animation: rotacion 60s linear infinite ;    
+    animation-play-state: paused;
+}
+
+@keyframes rotacion {
+    from { transform: rotate(-90deg) translate(77px);}
+    to   { transform: rotate(270deg) translate(77px);}
+}
+
+.buttons{
+    margin-top: 10px;
+    display: inline-flex;
+}
+
+.paused{
+    height: 15px;
+    border-width: 7px 0 7px 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-left: 15px;
+    border-color: transparent transparent transparent #228B22;
+    transition: 100ms all ease;
+    will-change: border-width;
+    border-style: solid;
+
+}
+
+.running{
+    border-style: double;
+    border-width: 0 0 0 10px;
+}
+
+.stop{
+    background-color: #228B22;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
